@@ -9,6 +9,8 @@ import EventKit
 import SwiftUI
 
 struct CalendarPicker: View {
+	@Environment(\.dismiss) var dismiss
+	
 	@Binding var calendar: EKCalendar?
 	
 	let pickerTitle: String
@@ -35,6 +37,7 @@ struct CalendarPicker: View {
 				.onTapGesture {
 					withAnimation {
 						calendar = element
+						dismiss()
 					}
 				}
 			}
