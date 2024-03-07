@@ -8,23 +8,20 @@
 import EventKit
 import SwiftUI
 
+/// Custom picker for choosing calendar from given calendars list
 struct CalendarPicker: View {
-	@Environment(\.dismiss) var dismiss
+	@Environment(\.dismiss) private var dismiss
 	
 	@Binding var calendar: EKCalendar?
 	
-	let pickerTitle: String
-	let content: [EKCalendar]
+	private let content: [EKCalendar]
+	private let dismissOnSelection: Bool
 	
 	var body: some View {
 		Form {
 			ForEach(content, id: \.self) { element in
 				HStack {
-					Circle()
-						.frame(width: 10)
-						.foregroundStyle(Color(cgColor: element.cgColor))
-					
-					Text(element.title)
+					CalendarLabel(element)
 					
 					Spacer()
 					
@@ -37,16 +34,23 @@ struct CalendarPicker: View {
 				.onTapGesture {
 					withAnimation {
 						calendar = element
-						dismiss()
+						
+						if dismissOnSelection { dismiss() }
 					}
 				}
 			}
 		}
 	}
 	
-	init(title pickerTitle: String, calendar: Binding<EKCalendar?>, content: [EKCalendar]) {
-		self.pickerTitle = pickerTitle
+	
+	/// Custom picker for choosing calendar from given calendars list
+	/// - Parameters:
+	///   - calendar: Binding to property in which selected calendar is saved
+	///   - content: List of calendars to choose from
+	///   - dismissOnSelection: If set to `true` picker dismisses itself after selecting calendar
+	init(calendar: Binding<EKCalendar?>, content: [EKCalendar], dismissOnSelection: Bool = true) {
 		self.content = content
+		self.dismissOnSelection = dismissOnSelection
 		
 		self._calendar = calendar
 	}
