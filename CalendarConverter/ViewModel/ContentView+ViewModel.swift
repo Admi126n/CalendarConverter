@@ -31,6 +31,12 @@ extension ContentView {
 		/// Property is set automatically on `startDate` `didSet` to 24 hours after `startDate`
 		@Published var endDate: Date = Calendar.current.startOfDay(for: .now.addingTimeInterval(24 * 3600))
 		
+		/// Choosen subscribed `EKCalendar` from which events to convers will be fetched
+		@Published var subscribedCalendar: EKCalendar?
+		
+		/// Choosen local `EKCalendar` in which events from `subscribedCalendar` will be created
+		@Published var localCalendar: EKCalendar?
+		
 		/// Instance of `CalendarConnector`
 		private var calendarConnector = CalendarConnector()
 		
@@ -39,12 +45,6 @@ extension ContentView {
 		
 		/// List od user `EKCalendars`
 		private(set) var userCalendars: [EKCalendar] = []
-		
-		/// Choosen subscribed `EKCalendar` from which events to convers will be fetched
-		var subscribedCalendar: EKCalendar?
-		
-		/// Choosen local `EKCalendar` in which events from `subscribedCalendar` will be created
-		var localCalendar: EKCalendar?
 		
 		/// Returnes `true` if `localCalendar` is not `nil`
 		var localCalendarSelected: Bool {
