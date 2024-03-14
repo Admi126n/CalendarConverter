@@ -68,20 +68,27 @@ class CalendarConnector: ObservableObject {
 	}
 	
 	/// Creates copy of given events in given calendar
-	/// 
+	///  
 	/// If no calendar is given copies are created in `defaultCalendarForNewEvents`
 	/// - Parameters:
 	///   - events: list of events to duplicate
 	///   - calendar: calendar in which duplicated events are created
-	func duplicate(_ events: [EKEvent], in calendar: EKCalendar?) {
-		guard accessGranted else { return }
+	/// - Returns: number of duplicated events, if no events was duplicated returns `nil`
+	func duplicate(_ events: [EKEvent], in calendar: EKCalendar?) -> Int? {
+		guard accessGranted else { return nil }
 		
 		if calendar == nil {
-			guard eventStore.defaultCalendarForNewEvents != nil else { return }
+			guard eventStore.defaultCalendarForNewEvents != nil else { return nil }
 		}
 		
 		for event in events {
 			createEvent(from: event, in: calendar ?? eventStore.defaultCalendarForNewEvents!)
+		}
+		
+		if events.count != 0 {
+			return events.count
+		} else {
+			return nil
 		}
 	}
 	

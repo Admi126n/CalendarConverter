@@ -60,9 +60,14 @@ struct ContentView: View {
 								.datePickerStyle(.compact)
 						}
 						
-						Button("Convert") {
+						Button {
 							vm.convertEvents()
+						} label: {
+							Text("Convert")
+								.frame(maxWidth: .infinity)
 						}
+						.buttonStyle(.borderedProminent)
+						.disabled(vm.convertButtonPressed)
 					}
 				}
 			}
@@ -70,6 +75,9 @@ struct ContentView: View {
 		.task {
 			_ = await connector.requestAccess()
 			await vm.requestCalendarAccess()
+		}
+		.alert(vm.alertTitle, isPresented: $vm.showingAlert) { } message: {
+			Text(vm.alertMessage)
 		}
 	}
 }
