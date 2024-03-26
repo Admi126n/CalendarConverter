@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
 	
-	@StateObject private var vm = ViewModel()
 	@StateObject private var connector = CalendarConnector()
+	@StateObject private var vm = ViewModel()
 	
 	var body: some View {
 		NavigationStack {
@@ -28,7 +28,7 @@ struct ContentView: View {
 				Form {
 					Section("Subscription calendar") {
 						NavigationLink {
-							CalendarPicker(calendar: $vm.subscribedCalendar, content: vm.subscribedCalendars)
+							CalendarPicker(calendar: $vm.subscribedCalendar, content: vm.subscribedCalendars, false)
 						} label: {
 							if let safeCalendar = vm.subscribedCalendar {
 								CalendarLabel(safeCalendar)
@@ -40,7 +40,7 @@ struct ContentView: View {
 					if vm.subscribedCalendarSelected {
 						Section("Your calendar") {
 							NavigationLink {
-								CalendarPicker(calendar: $vm.localCalendar, content: vm.userCalendars)
+								CalendarPicker(calendar: $vm.localCalendar, content: vm.userCalendars, true)
 							} label: {
 								if let safeCalendar = vm.localCalendar {
 									CalendarLabel(safeCalendar)
@@ -60,16 +60,25 @@ struct ContentView: View {
 								.datePickerStyle(.compact)
 						}
 						
-						Button("Convert") {
+						Button {
 							vm.convertEvents()
+						} label: {
+							Text("Convert")
+								.frame(maxWidth: .infinity)
 						}
+						.buttonStyle(.borderedProminent)
+						.disabled(vm.convertButtonPressed)
 					}
 				}
 			}
 		}
+		.environmentObject(connector)
 		.task {
 			_ = await connector.requestAccess()
 			await vm.requestCalendarAccess()
+		}
+		.alert(vm.alertTitle, isPresented: $vm.showingAlert) { } message: {
+			Text(vm.alertMessage)
 		}
 	}
 }

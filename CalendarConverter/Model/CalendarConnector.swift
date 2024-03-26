@@ -68,20 +68,27 @@ class CalendarConnector: ObservableObject {
 	}
 	
 	/// Creates copy of given events in given calendar
-	/// 
+	///  
 	/// If no calendar is given copies are created in `defaultCalendarForNewEvents`
 	/// - Parameters:
 	///   - events: list of events to duplicate
 	///   - calendar: calendar in which duplicated events are created
-	func duplicate(_ events: [EKEvent], in calendar: EKCalendar?) {
-		guard accessGranted else { return }
+	/// - Returns: number of duplicated events, if no events was duplicated returns `nil`
+	func duplicate(_ events: [EKEvent], in calendar: EKCalendar?) -> Int? {
+		guard accessGranted else { return nil }
 		
 		if calendar == nil {
-			guard eventStore.defaultCalendarForNewEvents != nil else { return }
+			guard eventStore.defaultCalendarForNewEvents != nil else { return nil }
 		}
 		
 		for event in events {
 			createEvent(from: event, in: calendar ?? eventStore.defaultCalendarForNewEvents!)
+		}
+		
+		if events.count != 0 {
+			return events.count
+		} else {
+			return nil
 		}
 	}
 	
@@ -97,6 +104,27 @@ class CalendarConnector: ObservableObject {
 			try eventStore.save(newEvent, span: .thisEvent)
 		} catch {
 			print(error.localizedDescription)
+		}
+	}
+	
+	/// Creates new local calendar
+	/// - Parameter title: Title for new calendar
+	/// - Returns: Created calendar
+	func createCalendar(with title: String) -> EKCalendar? {
+		guard accessGranted else { return nil }
+		guard let source = eventStore.defaultCalendarForNewEvents?.source else { return nil }
+		
+		let calendar = EKCalendar(for: .event, eventStore: eventStore)
+		calendar.title = title
+		calendar.source = source
+		calendar.cgColor = CGColor(red: 0.424, green: 0.816, blue: 0.392, alpha: 1.0)
+		
+		do {
+			try eventStore.saveCalendar(calendar, commit: true)
+			
+			return calendar
+		} catch {
+			return nil
 		}
 	}
 }

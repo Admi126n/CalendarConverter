@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		660D89ED2B94DD390074ED6D /* CalendarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660D89EC2B94DD390074ED6D /* CalendarPicker.swift */; };
 		661F9AB82B9FAAFD0024DB15 /* EKEvent+getCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F9AB72B9FAAFD0024DB15 /* EKEvent+getCopy.swift */; };
-		661F9ABA2B9FAB3C0024DB15 /* CalendarConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F9AB92B9FAB3C0024DB15 /* CalendarConverter.swift */; };
+		661F9ABA2B9FAB3C0024DB15 /* CalendarConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661F9AB92B9FAB3C0024DB15 /* CalendarConnector.swift */; };
 		669382202B975BC300955ED5 /* ContentView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6693821F2B975BC300955ED5 /* ContentView+ViewModel.swift */; };
 		669382232B975DCC00955ED5 /* CalendarLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669382222B975DCC00955ED5 /* CalendarLabel.swift */; };
 		669382252B97DD8300955ED5 /* EKCalendar+example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669382242B97DD8300955ED5 /* EKCalendar+example.swift */; };
+		669821FD2BB342DC005D7E7E /* CreateNewCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669821FC2BB342DC005D7E7E /* CreateNewCalendarView.swift */; };
 		669E0DE42B93D99A000636B6 /* CalendarConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669E0DE32B93D99A000636B6 /* CalendarConverterApp.swift */; };
 		669E0DE62B93D99A000636B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669E0DE52B93D99A000636B6 /* ContentView.swift */; };
 		669E0DE82B93D99B000636B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 669E0DE72B93D99B000636B6 /* Assets.xcassets */; };
@@ -22,10 +23,11 @@
 /* Begin PBXFileReference section */
 		660D89EC2B94DD390074ED6D /* CalendarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPicker.swift; sourceTree = "<group>"; };
 		661F9AB72B9FAAFD0024DB15 /* EKEvent+getCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEvent+getCopy.swift"; sourceTree = "<group>"; };
-		661F9AB92B9FAB3C0024DB15 /* CalendarConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConverter.swift; sourceTree = "<group>"; };
+		661F9AB92B9FAB3C0024DB15 /* CalendarConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConnector.swift; sourceTree = "<group>"; };
 		6693821F2B975BC300955ED5 /* ContentView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+ViewModel.swift"; sourceTree = "<group>"; };
 		669382222B975DCC00955ED5 /* CalendarLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLabel.swift; sourceTree = "<group>"; };
 		669382242B97DD8300955ED5 /* EKCalendar+example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKCalendar+example.swift"; sourceTree = "<group>"; };
+		669821FC2BB342DC005D7E7E /* CreateNewCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCalendarView.swift; sourceTree = "<group>"; };
 		669E0DE02B93D99A000636B6 /* CalendarConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		669E0DE32B93D99A000636B6 /* CalendarConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarConverterApp.swift; sourceTree = "<group>"; };
 		669E0DE52B93D99A000636B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 			children = (
 				669382242B97DD8300955ED5 /* EKCalendar+example.swift */,
 				661F9AB72B9FAAFD0024DB15 /* EKEvent+getCopy.swift */,
-				661F9AB92B9FAB3C0024DB15 /* CalendarConverter.swift */,
+				661F9AB92B9FAB3C0024DB15 /* CalendarConnector.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +109,7 @@
 				669E0DE52B93D99A000636B6 /* ContentView.swift */,
 				660D89EC2B94DD390074ED6D /* CalendarPicker.swift */,
 				669382222B975DCC00955ED5 /* CalendarLabel.swift */,
+				669821FC2BB342DC005D7E7E /* CreateNewCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,10 +185,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				669382202B975BC300955ED5 /* ContentView+ViewModel.swift in Sources */,
+				669821FD2BB342DC005D7E7E /* CreateNewCalendarView.swift in Sources */,
 				660D89ED2B94DD390074ED6D /* CalendarPicker.swift in Sources */,
 				661F9AB82B9FAAFD0024DB15 /* EKEvent+getCopy.swift in Sources */,
 				669E0DE62B93D99A000636B6 /* ContentView.swift in Sources */,
-				661F9ABA2B9FAB3C0024DB15 /* CalendarConverter.swift in Sources */,
+				661F9ABA2B9FAB3C0024DB15 /* CalendarConnector.swift in Sources */,
 				669382232B975DCC00955ED5 /* CalendarLabel.swift in Sources */,
 				669382252B97DD8300955ED5 /* EKCalendar+example.swift in Sources */,
 				669E0DE42B93D99A000636B6 /* CalendarConverterApp.swift in Sources */,
