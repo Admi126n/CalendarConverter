@@ -125,7 +125,7 @@ extension ContentView {
 		
 		private func configureAlert() {
 			if duplicatedEventsCount != nil {
-				alertTitle = "Succes!"
+				alertTitle = "Success!"
 				alertMessage = "\(duplicatedEventsCount!) events were saved in \(localCalendar!.title) calendar."
 			} else {
 				alertTitle = "Something went wrong"

@@ -18,24 +18,28 @@ struct CalendarPicker: View {
 	private let dismissOnSelection: Bool
 	
 	var body: some View {
-		Form {
-			ForEach(content, id: \.self) { element in
-				HStack {
-					CalendarLabel(element)
-					
-					Spacer()
-					
-					if element == calendar {
-						Image(systemName: "checkmark")
-							.foregroundStyle(.green)
-					}
-				}
-				.contentShape(.rect)
-				.onTapGesture {
-					withAnimation {
-						calendar = element
+		if content.isEmpty {
+			ContentUnavailableView("You don't have any subscribed calendars", systemImage: "calendar.badge.exclamationmark")
+		} else {
+			Form {
+				ForEach(content, id: \.self) { element in
+					HStack {
+						CalendarLabel(element)
 						
-						if dismissOnSelection { dismiss() }
+						Spacer()
+						
+						if element == calendar {
+							Image(systemName: "checkmark")
+								.foregroundStyle(.green)
+						}
+					}
+					.contentShape(.rect)
+					.onTapGesture {
+						withAnimation {
+							calendar = element
+							
+							if dismissOnSelection { dismiss() }
+						}
 					}
 				}
 			}
