@@ -106,4 +106,25 @@ class CalendarConnector: ObservableObject {
 			print(error.localizedDescription)
 		}
 	}
+	
+	/// Creates new local calendar
+	/// - Parameter title: Title for new calendar
+	/// - Returns: Created calendar
+	func createCalendar(with title: String) -> EKCalendar? {
+		guard accessGranted else { return nil }
+		guard let source = eventStore.defaultCalendarForNewEvents?.source else { return nil }
+		
+		let calendar = EKCalendar(for: .event, eventStore: eventStore)
+		calendar.title = title
+		calendar.source = source
+		calendar.cgColor = CGColor(red: 0.424, green: 0.816, blue: 0.392, alpha: 1.0)
+		
+		do {
+			try eventStore.saveCalendar(calendar, commit: true)
+			
+			return calendar
+		} catch {
+			return nil
+		}
+	}
 }
