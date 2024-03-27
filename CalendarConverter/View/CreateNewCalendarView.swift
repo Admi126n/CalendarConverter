@@ -19,19 +19,31 @@ struct CreateNewCalendarView: View {
 	
     var body: some View {
 		Form {
-			TextField("New calendar title", text: $calendarTitle)
-				.focused($focused)
+			Section {
+				TextField("New calendar title", text: $calendarTitle)
+					.focused($focused)
+				
+				Button {
+					if let newCalendar = connector.createCalendar(with: calendarTitle) {
+						onCalendarCreation(newCalendar)
+						dismiss()
+					}
+				} label: {
+					Text("Create new calendar")
+						.frame(maxWidth: .infinity)
+				}
+				.buttonStyle(.borderedProminent)
+			}
 			
 			Button {
-				if let newCalendar = connector.createCalendar(with: calendarTitle) {
-					onCalendarCreation(newCalendar)
-					dismiss()
-				}
+				dismiss()
 			} label: {
-				Text("Create new calendar")
-					.frame(maxWidth: .infinity)
+				HStack {
+					Spacer()
+					
+					Text("Cancel")
+				}
 			}
-			.buttonStyle(.borderedProminent)
 		}
 		.onAppear {
 			focused = true
