@@ -18,6 +18,7 @@ struct CalendarPicker: View {
 	
 	private let content: [EKCalendar]
 	private let dismissOnSelection: Bool
+	private let onDismiss: (() -> ())?
 	private let showCalendarCreator: Bool
 	
 	var body: some View {
@@ -58,6 +59,7 @@ struct CalendarPicker: View {
 			}
 			.sheet(isPresented: $showingSheet) {
 				if calendar != nil {
+					onDismiss?()
 					dismiss()
 				}
 			} content: {
@@ -76,10 +78,12 @@ struct CalendarPicker: View {
 	///   - content: List of calendars to choose from
 	///   - dismissOnSelection: If set to `true` picker dismisses itself after selecting calendar
 	///   - showCalendarCreator: If set to `true` section for creating new calendar appears
-	init(calendar: Binding<EKCalendar?>, content: [EKCalendar], dismissOnSelection: Bool = true, _ showCalendarCreator: Bool) {
+	///   - onDismiss: Closure which is runed on view dismissing
+	init(calendar: Binding<EKCalendar?>, content: [EKCalendar], dismissOnSelection: Bool = true, _ showCalendarCreator: Bool, onDismiss: (() -> ())? = nil) {
 		self.content = content
 		self.dismissOnSelection = dismissOnSelection
 		self.showCalendarCreator = showCalendarCreator
+		self.onDismiss = onDismiss
 		
 		self._calendar = calendar
 	}

@@ -40,7 +40,9 @@ struct ContentView: View {
 					if vm.subscribedCalendarSelected {
 						Section("Your calendar") {
 							NavigationLink {
-								CalendarPicker(calendar: $vm.localCalendar, content: vm.userCalendars, true)
+								CalendarPicker(calendar: $vm.localCalendar, content: vm.userCalendars, true) {
+									vm.fillCalendars()
+							 }
 							} label: {
 								if let safeCalendar = vm.localCalendar {
 									CalendarLabel(safeCalendar)
