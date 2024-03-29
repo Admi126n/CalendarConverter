@@ -57,17 +57,17 @@ extension ContentView {
 		
 		@Published var showingAlert: Bool = false
 		
+		/// List of subscribed `EKCalendars`
+		@Published private(set) var subscribedCalendars: [EKCalendar] = []
+		
+		/// List od user `EKCalendars`
+		@Published private(set) var userCalendars: [EKCalendar] = []
+		
 		/// Instance of `CalendarConnector`
 		private var calendarConnector = CalendarConnector()
 		
 		/// Number of duplicated events, set to `nil` if no events were converted
 		private var duplicatedEventsCount: Int?
-		
-		/// List of subscribed `EKCalendars`
-		private(set) var subscribedCalendars: [EKCalendar] = []
-		
-		/// List od user `EKCalendars`
-		private(set) var userCalendars: [EKCalendar] = []
 		
 		/// Alert title
 		private(set) var alertTitle = ""
@@ -90,7 +90,7 @@ extension ContentView {
 			startDate.addingTimeInterval(24 * 3600)
 		}
 		
-		private func fillCalendars() {
+		func fillCalendars() {
 			subscribedCalendars = calendarConnector.getSubscribedCalendars()
 			userCalendars = calendarConnector.getUserCalendars()
 		}
