@@ -65,6 +65,16 @@
         }
       }
     },
+    "And that's it!" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I to wszystko"
+          }
+        }
+      }
+    },
     "App needs calendar access to convert events." : {
       "localizations" : {
         "pl" : {
@@ -135,6 +145,16 @@
         }
       }
     },
+    "Events from subscribed calendar are saved in your local calendar!" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wydarzenia z subskrybowanego kalendarza są zapisane w twoim lokalnym kalendarzu!"
+          }
+        }
+      }
+    },
     "From" : {
       "localizations" : {
         "pl" : {
@@ -151,6 +171,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Idź do ustawień"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dalej"
           }
         }
       }
@@ -175,6 +206,46 @@
         }
       }
     },
+    "Select calendars" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz kalendarze"
+          }
+        }
+      }
+    },
+    "Select date range" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz zakres dat"
+          }
+        }
+      }
+    },
+    "Select date range in which you want to convert events." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz zakres dat, z którego chcesz zapisać wydarzenia."
+          }
+        }
+      }
+    },
+    "Select subscribed calendar and your local calendar." : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz subskrybowany kalendarz i swój lokalny kalendarz."
+          }
+        }
+      }
+    },
     "Subscription calendar" : {
       "localizations" : {
         "pl" : {
@@ -191,6 +262,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Do"
+          }
+        }
+      }
+    },
+    "To the app!" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do aplikacji!"
           }
         }
       }

@@ -17,10 +17,10 @@ struct OnboardingView: View {
 	var body: some View {
 		TabView(selection: $selectedPage) {
 			OnboardingPageView(
-				pageTitle: "Select calendars",
-				pageMessage: "Select subscribed calendar and your local calendar.",
+				pageTitle: String(localized: "Select calendars"),
+				pageMessage: String(localized: "Select subscribed calendar and your local calendar."),
 				pageSymbolName: "calendar",
-				buttonTitle: "Next") {
+				buttonTitle: String(localized: "Next")) {
 					withAnimation {
 						selectedPage = 1
 					}
@@ -29,10 +29,10 @@ struct OnboardingView: View {
 				.tag(0)
 			
 			OnboardingPageView(
-				pageTitle: "Select date range",
-				pageMessage: "Select date range in which you want to convert events.",
+				pageTitle: String(localized: "Select date range"),
+				pageMessage: String(localized: "Select date range in which you want to convert events."),
 				pageSymbolName: "calendar.badge.clock",
-				buttonTitle: "Next") {
+				buttonTitle: String(localized: "Next")) {
 					withAnimation {
 						selectedPage = 2
 					}
@@ -41,10 +41,10 @@ struct OnboardingView: View {
 				.tag(1)
 			
 			OnboardingPageView(
-				pageTitle: "And that's it!",
-				pageMessage: "Events from subscribed calendar are saved in your local calendar.",
+				pageTitle: String(localized: "And that's it!"),
+				pageMessage: String(localized: "Events from subscribed calendar are saved in your local calendar!"),
 				pageSymbolName: "calendar.badge.checkmark",
-				buttonTitle: "Got it!") {
+				buttonTitle: String(localized: "To the app!")) {
 					showingOnboarding = false
 				}
 				.onAppear(perform: toggleSymbolAnimator)
