@@ -10,12 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
 	
+	@AppStorage("showingOnboarding") private var showingOnboarding = true
 	@StateObject private var connector = CalendarConnector()
 	@StateObject private var vm = ViewModel()
 	
 	var body: some View {
 		NavigationStack {
-			if !connector.accessGranted {
+			if showingOnboarding {
+				OnboardingView()
+			} else if !connector.accessGranted {
 				ContentUnavailableView(label: {
 					Label("No calendar access", systemImage: "calendar.badge.minus")
 					
