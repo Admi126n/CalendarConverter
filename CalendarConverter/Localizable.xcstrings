@@ -36,15 +36,45 @@
     "alert.success.message %lld %@" : {
       "localizations" : {
         "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld events were saved in %2$@ calendar."
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld event was saved in %2$@ calendar."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld events were saved in %2$@ calendar."
+                }
+              }
+            }
           }
         },
         "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld wydarzeń zostało zapisanych w kalendarzu %2$@."
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld wydarzenia zostały zapisane w kalendarzu %2$@."
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld wydarzenie zostało zapisane w kalendarzu %2$@."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld wydarzeń zostało zapisanych w kalendarzu %2$@."
+                }
+              }
+            }
           }
         }
       }
