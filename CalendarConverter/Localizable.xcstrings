@@ -105,12 +105,12 @@
         }
       }
     },
-    "App needs calendar access to convert events." : {
+    "App needs full calendar access to get events from subscription calendars and create events in your local calendar." : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aplikacja potrzebuje dostępu do kalendarza, żeby konwertować wydarzenia."
+            "value" : "Aplikacja potrzebuje pełnego dostępu do kalendarza, aby pobierać wydarzenia z kalendarzy subskrypcyjnych i tworzyć wydarzenia w twoim kalendarzu lokalnym."
           }
         }
       }

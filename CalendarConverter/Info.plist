@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>NSCalendarsFullAccessUsageDescription</key>
-	<string>App needs calendar access to convert your events</string>
+	<string>App needs full calendar access to get events from subscription calendars and create events in your local calendar.</string>
 </dict>
 </plist>
