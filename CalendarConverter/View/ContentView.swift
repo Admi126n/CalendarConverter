@@ -23,7 +23,7 @@ struct ContentView: View {
 					Label("No calendar access", systemImage: "calendar.badge.minus")
 					
 				}, description: {
-					Text("App needs calendar access to convert events.")
+					Text("App needs full calendar access to get events from subscription calendars and create events in your local calendar.")
 				}, actions: {
 					Link("Go to settings", destination: URL(string: UIApplication.openSettingsURLString)!)
 				})
