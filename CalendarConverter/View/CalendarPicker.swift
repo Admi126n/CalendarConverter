@@ -46,6 +46,8 @@ struct CalendarPicker: View {
 								if dismissOnSelection { dismiss() }
 							}
 						}
+						.accessibilityElement(children: .combine)
+						.accessibilityLabel(element.title)
 					}
 				}
 				

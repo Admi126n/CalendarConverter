@@ -1,6 +1,26 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "%@ selected" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybrano %@"
+          }
+        }
+      }
+    },
     "alert.error.message" : {
       "localizations" : {
         "en" : {
@@ -205,6 +225,16 @@
         }
       }
     },
+    "Local calendar selection" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybór lokalnego kalendarza"
+          }
+        }
+      }
+    },
     "Next" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -282,6 +312,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kalendarz subskrybowany"
+          }
+        }
+      }
+    },
+    "Subscription calendar selection" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybór kalendarza subskrybowanego"
           }
         }
       }

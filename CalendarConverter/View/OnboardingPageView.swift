@@ -35,6 +35,9 @@ struct OnboardingPageView: View {
 				RoundedRectangle(cornerRadius: 10)
 					.stroke(.secondary, lineWidth: 2)
 			}
+			.accessibilityElement(children: .combine)
+			.accessibilityLabel(pageTitle)
+			.accessibilityHint(pageMessage)
 			
 			Spacer()
 			
@@ -50,6 +53,7 @@ struct OnboardingPageView: View {
 				.clipShape(.rect(cornerRadius: 7))
 			}
 			.offset(y: -50)
+			.accessibilityLabel(buttonTitle)
 		}
 		.padding()
 	}
