@@ -14,6 +14,14 @@ struct ContentView: View {
 	@StateObject private var connector = CalendarConnector()
 	@StateObject private var vm = ViewModel()
 	
+	private var subscriptionHint: String {
+		vm.subscribedCalendar != nil ? "\(vm.subscribedCalendar!.title) selected" : ""
+	}
+	
+	private var localHint: String {
+		vm.localCalendar != nil ? "\(vm.localCalendar!.title) selected" : ""
+	}
+	
 	var body: some View {
 		NavigationStack {
 			if showingOnboarding {
@@ -40,12 +48,15 @@ struct ContentView: View {
 							}
 						}
 					}
+					.accessibilityLabel("Subscription calendar selection")
+					.accessibilityHint(subscriptionHint)
+					
 					if vm.subscribedCalendarSelected {
 						Section("Your calendar") {
 							NavigationLink {
 								CalendarPicker(calendar: $vm.localCalendar, content: vm.userCalendars, true) {
 									vm.fillCalendars()
-							 }
+								}
 							} label: {
 								if let safeCalendar = vm.localCalendar {
 									CalendarLabel(safeCalendar)
@@ -54,6 +65,8 @@ struct ContentView: View {
 								}
 							}
 						}
+						.accessibilityLabel("Local calendar selection")
+						.accessibilityHint(localHint)
 					}
 					
 					if vm.subscribedCalendarSelected && vm.localCalendarSelected {
