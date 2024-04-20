@@ -15,11 +15,11 @@ struct ContentView: View {
 	@StateObject private var vm = ViewModel()
 	
 	private var subscriptionHint: String {
-		vm.subscribedCalendar != nil ? "\(vm.subscribedCalendar!.title) selected" : ""
+		vm.subscribedCalendar != nil ? String(localized: "\(vm.subscribedCalendar!.title) selected") : ""
 	}
 	
 	private var localHint: String {
-		vm.localCalendar != nil ? "\(vm.localCalendar!.title) selected" : ""
+		vm.localCalendar != nil ? String(localized: "\(vm.localCalendar!.title) selected") : ""
 	}
 	
 	var body: some View {
