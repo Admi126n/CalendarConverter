@@ -6,6 +6,8 @@ You just have to choose one of your subscribed calendars, your local calendar in
 
 Thanks to that you can edit or delete some events which is not possible with events from subscribed calendars.
 
+[<img src=Documentation/AppStore.png width=100>](https://apps.apple.com/pl/app/subscriptioncalendarconverter/id6478835060)
+
 ### Screenshots
 |||
 |:-------------:|:-------------:|
